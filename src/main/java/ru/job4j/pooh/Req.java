@@ -1,6 +1,8 @@
 package ru.job4j.pooh;
 
 /**
+ * Класс служит для парсинга входящих запросов
+ *
  * @author Artem Chernikov
  * @version 1.0
  * @since 27.12.2022
@@ -8,9 +10,21 @@ package ru.job4j.pooh;
 public class Req {
     private static final String GET = "GET";
     private static final String POST = "POST";
+    /**
+     * Поле тип запроса (GET или POST)
+     */
     private final String httpRequestType;
+    /**
+     * Поле режим работы (queue или topic)
+     */
     private final String poohMode;
+    /**
+     * Поле имя конкретной очереди или топика
+     */
     private final String sourceName;
+    /**
+     * Поле содержимое запроса
+     */
     private final String param;
 
     public Req(String httpRequestType, String poohMode, String sourceName, String param) {
@@ -20,6 +34,12 @@ public class Req {
         this.param = param;
     }
 
+    /**
+     * Метод используется для парсинга входящего запроса и возвращения модели запроса
+     *
+     * @param content - запрос
+     * @return - возвращает объект {@link Req}
+     */
     public static Req of(String content) {
         String[] partsOfContent = content.split(System.lineSeparator());
         String[] mainContent = partsOfContent[0].split("/");
