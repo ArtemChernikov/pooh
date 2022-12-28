@@ -8,8 +8,8 @@ package ru.job4j.pooh;
  * @since 27.12.2022
  */
 public class Req {
-    private static final String GET = "GET";
-    private static final String POST = "POST";
+    static final String GET = "GET";
+    static final String POST = "POST";
     /**
      * Поле тип запроса (GET или POST)
      */

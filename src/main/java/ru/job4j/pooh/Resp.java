@@ -9,6 +9,14 @@ package ru.job4j.pooh;
  */
 public class Resp {
     /**
+     * Поле статус, если запрос прошел успешно
+     */
+    static final String GOOD_STATUS = "200";
+    /**
+     * Поле статус, если нет данных
+     */
+    static final String BAD_STATUS = "204";
+    /**
      * Поле текст ответа
      */
     private final String text;
