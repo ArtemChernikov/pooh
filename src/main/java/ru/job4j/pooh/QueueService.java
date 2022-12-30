@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public class QueueService implements Service {
 
-    private Map<String, ConcurrentLinkedQueue<String>> queues = new ConcurrentHashMap<>();
+    private final Map<String, ConcurrentLinkedQueue<String>> queues = new ConcurrentHashMap<>();
 
     @Override
     public Resp process(Req req) {
@@ -22,8 +22,7 @@ public class QueueService implements Service {
             queues.get(req.getSourceName()).add(req.getParam());
         }
         if (Req.GET.equals(httpRequestType)) {
-            ConcurrentLinkedQueue<String> rsl = queues.get(req.getSourceName());
-            text = rsl == null ? null : rsl.poll();
+            text = queues.getOrDefault(req.getSourceName(), new ConcurrentLinkedQueue<>()).poll();
         }
         return text == null ? new Resp("", Resp.BAD_STATUS) : new Resp(text, Resp.GOOD_STATUS);
     }

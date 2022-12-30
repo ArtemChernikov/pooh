@@ -11,13 +11,13 @@ class QueueServiceTest {
         QueueService queueService = new QueueService();
         String paramForPostMethod = "temperature=18";
         queueService.process(
-                new Req("POST", "queue", "weather", paramForPostMethod)
+                new Req(Req.POST, "queue", "weather", paramForPostMethod)
         );
         Resp result = queueService.process(
-                new Req("GET", "queue", "weather", null)
+                new Req(Req.GET, "queue", "weather", null)
         );
         assertThat(result.text()).isEqualTo("temperature=18");
-        assertThat(result.status()).isEqualTo("200");
+        assertThat(result.status()).isEqualTo(Resp.GOOD_STATUS);
     }
 
     @Test
@@ -25,10 +25,10 @@ class QueueServiceTest {
         QueueService queueService = new QueueService();
         String paramForPostMethod = "temperature=18";
         Resp result = queueService.process(
-                new Req("POST", "queue", "weather", paramForPostMethod)
+                new Req(Req.POST, "queue", "weather", paramForPostMethod)
         );
         assertThat(result.text()).isEqualTo("");
-        assertThat(result.status()).isEqualTo("200");
+        assertThat(result.status()).isEqualTo(Resp.GOOD_STATUS);
     }
 
     @Test
@@ -36,13 +36,13 @@ class QueueServiceTest {
         QueueService queueService = new QueueService();
         String paramForPostMethod = "temperature=18";
         queueService.process(
-                new Req("POST", "queue", "weather", paramForPostMethod)
+                new Req(Req.POST, "queue", "weather", paramForPostMethod)
         );
         Resp result = queueService.process(
-                new Req("GET", "queue", "weather", null)
+                new Req(Req.GET, "queue", "weather", null)
         );
         assertThat(result.text()).isEqualTo(paramForPostMethod);
-        assertThat(result.status()).isEqualTo("200");
+        assertThat(result.status()).isEqualTo(Resp.GOOD_STATUS);
     }
 
     @Test
@@ -50,12 +50,12 @@ class QueueServiceTest {
         QueueService queueService = new QueueService();
         String paramForPostMethod = "temperature=18";
         queueService.process(
-                new Req("POST", "queue", "weather", paramForPostMethod)
+                new Req(Req.POST, "queue", "weather", paramForPostMethod)
         );
         Resp result = queueService.process(
-                new Req("GET", "queue", "unknown", null)
+                new Req(Req.GET, "queue", "unknown", null)
         );
         assertThat(result.text()).isEqualTo("");
-        assertThat(result.status()).isEqualTo("204");
+        assertThat(result.status()).isEqualTo(Resp.BAD_STATUS);
     }
 }

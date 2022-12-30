@@ -18,7 +18,7 @@ class ReqTest {
                 "" + ls +
                 "temperature=18" + ls;
         Req req = Req.of(content);
-        assertThat(req.httpRequestType()).isEqualTo("POST");
+        assertThat(req.httpRequestType()).isEqualTo(Req.POST);
         assertThat(req.getPoohMode()).isEqualTo("queue");
         assertThat(req.getSourceName()).isEqualTo("weather");
         assertThat(req.getParam()).isEqualTo("temperature=18");
@@ -32,7 +32,7 @@ class ReqTest {
                 + "User-Agent: curl/7.72.0" + ls
                 + "Accept: */*" + ls + ls + ls;
         Req req = Req.of(content);
-        assertThat(req.httpRequestType()).isEqualTo("GET");
+        assertThat(req.httpRequestType()).isEqualTo(Req.GET);
         assertThat(req.getPoohMode()).isEqualTo("queue");
         assertThat(req.getSourceName()).isEqualTo("weather");
         assertThat(req.getParam()).isEqualTo("");
@@ -50,7 +50,7 @@ class ReqTest {
                 "" + ls +
                 "temperature=18" + ls;
         Req req = Req.of(content);
-        assertThat(req.httpRequestType()).isEqualTo("POST");
+        assertThat(req.httpRequestType()).isEqualTo(Req.POST);
         assertThat(req.getPoohMode()).isEqualTo("topic");
         assertThat(req.getSourceName()).isEqualTo("weather");
         assertThat(req.getParam()).isEqualTo("temperature=18");
@@ -64,7 +64,7 @@ class ReqTest {
                 + "User-Agent: curl/7.72.0" + ls
                 + "Accept: */*" + ls + ls + ls;
         Req req = Req.of(content);
-        assertThat(req.httpRequestType()).isEqualTo("GET");
+        assertThat(req.httpRequestType()).isEqualTo(Req.GET);
         assertThat(req.getPoohMode()).isEqualTo("topic");
         assertThat(req.getSourceName()).isEqualTo("weather");
         assertThat(req.getParam()).isEqualTo("client407");
