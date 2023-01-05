@@ -11,6 +11,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * Main класс программы, используется сокет-сервер с портом 9000.
+ * Читает входящий запрос и отправляет на него ответ.
+ *
  * @author Artem Chernikov
  * @version 1.0
  * @since 25.12.2022
