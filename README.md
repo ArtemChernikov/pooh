@@ -13,7 +13,7 @@
 - Java 17
 - Maven
 - Git
-- JUnit5
+- JUnit 5
 - Concurrency
 
 ## Сборка и запуск<br>
