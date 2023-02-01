@@ -48,7 +48,7 @@
 
 ## Сборка и запуск<br>
 - для сборки `mvn install`
-- для запуска `java -jar target/job4j_pooh-1.0-jar-with-dependencies.jar`
+- для запуска `java -jar target/pooh.jar`
 
 ## Контакты для связи<br>
 <a href="https://t.me/OvercomingJunk" target="blank"><img src="https://img.icons8.com/clouds/50/000000/telegram-app.png"/></a>
